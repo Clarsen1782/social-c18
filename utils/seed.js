@@ -1,15 +1,14 @@
-
 const mongoose = require('mongoose');
-const { users, thoughts } = require('./data');
+const { User, Thought } = require('./data');
 const User = require('../models/User');
 const Thought = require('../models/Thought');
 
 async function seedDatabase() {
+    const dbURI = 'mongodb://127.0.0.1/my_database';
+
     try {
-        await mongoose.connect('mongodb://localhost:27017/', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log('Connected to MongoDB');
 
         await User.deleteMany();
         await Thought.deleteMany();
@@ -22,6 +21,7 @@ async function seedDatabase() {
         console.error('Error seeding database:', error);
     } finally {
         await mongoose.disconnect();
+        console.log('Disconnected from MongoDB');
     }
 }
 

@@ -1,4 +1,4 @@
-const users = [
+const User = [
   { name: 'Harrison Fuzzbottom', userName: 'Harrison', email: 'Harrison@example.com' },
   { name: 'Lily Tiger', userName: 'Lily', email: 'Lily@example.com' },
   { name: 'Sullivan Retread', userName: 'Sullivan', email: 'Sullivan@example.com' },
@@ -11,7 +11,7 @@ const users = [
   { name: 'Ming Devil', userName: 'Ming', email: 'Ming@example.com' },
 ];
 
-const thoughts = [
+const Thought = [
   { content: 'This is a thought by Harrison Fuzzbottom.', userName: 'Harrison' },
   { content: 'This is a thought by Lily Tiger.', serName: 'Lily' },
   { content: 'This is a thought by Sullivan Retread.', userName: 'Sullivan' },
@@ -30,8 +30,8 @@ const thoughts = [
 ];
 
 module.exports = {
-  users,
-  thoughts,
+  User,
+  Thought,
 };
 
 
