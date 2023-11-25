@@ -3,7 +3,7 @@ const { User: user, Thought: thought } = require('./data');
 const User = require('../models/User');
 const Thought = require('../models/Thought');
 
-mongoose.connect('mongodb://localhost:27017/social-c18', {
+mongoose.connect('mongodb://127.0.0.1:27017/developersApplications', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
