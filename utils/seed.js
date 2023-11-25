@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { users: user, thoughts: thought } = require('./data');
+const { User: user, Thought: thought } = require('./data');
 const User = require('../models/User');
 const Thought = require('../models/Thought');
 

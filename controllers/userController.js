@@ -1,4 +1,4 @@
-const { User, Thought } = require('../models');
+const { User } = require('../models/User');
 
 const getUsers = async (req, res) => {
     try {
@@ -11,7 +11,7 @@ const getUsers = async (req, res) => {
 
 const getSingleUser = async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.userName })
+        const user = await User.findOne({ _id: req.params.userId })
             .select('-__v');
 
         if (!user) {
@@ -35,7 +35,7 @@ const createUser = async (req, res) => {
 
 const deleteUser = async (req, res) => {
     try {
-        const user = await User.findOneAndDelete({ _id: req.params.userName });
+        const user = await User.findOneAndDelete({ _id: req.params.userId });
 
         if (!user) {
             return res.status(404).json({ message: 'No user with that ID' });
@@ -51,7 +51,7 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findOneAndUpdate(
-      { name: req.params.userName }, 
+      { _id: req.params.userId }, 
       { $set: req.body }, 
       { new: true } 
     );
