@@ -6,8 +6,15 @@ const {
     createUser,
     deleteUser,
     updateUser,
-} = require('/').get(getUsers).post(createUser);
+} = require('../../controllers/userController').get(getUsers).post(createUser);
 
-router.route('/:userName').get(getSingleUser);
+router.route('/')
+    .get(getUsers)
+    .post(createUser);
+
+router.route('/:userName')
+    .get(getSingleUser)
+    .delete(deleteUser)
+    .put(updateUser);
 
 module.exports = router;
